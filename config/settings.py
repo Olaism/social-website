@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     #3rd Party
     'widget_tweaks',
+    'social_django',
 
     #local
     'account',
@@ -147,3 +148,18 @@ LOGOUT_REDIRECT_URL = 'login'
 LOGIN_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.google.GoogleOAuth',
+    'social_core.backends.facebook.Facebook2OAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+]
+
+SOCIAL_AUTH_JSONFIELD_ENABLED = True
+
+SOCIAL_AUTH_FACEBOOK_KEY = env('FB_ID')
+SOCIAL_AUTH_FACEBOOK_SECRET = env('FB_SECRET')
+SOCAIL_AUTH_FACEBOOK_SCOPE = ['email',]
