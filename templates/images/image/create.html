@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+
+{% block title %}{{ block.super }} - Create{% endblock title %}
+
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-10 col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Bookmark an image</h4>
+                    <img src="{{ request.GET.url }}" alt="{{ image.name }}">
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">Bookmark It!</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

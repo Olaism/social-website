@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     #local
     'account',
+    'images',
 ]
 
 MIDDLEWARE = [
@@ -152,7 +153,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.google.GoogleOAuth',
-    'social_core.backends.facebook.Facebook2OAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
 
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
